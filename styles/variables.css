@@ -4,7 +4,7 @@
   --main-font: 'Inter', sans-serif;
   --wght-text: 400;
   --wght-title: 700;
-  --accent-font: 'PressStart2P', monospace;
+  --accent-font: 'PressStart2P', 'fantasy';
   --acccent-wght: 400;
   --header-title-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   --header-title-line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);

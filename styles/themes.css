@@ -8,7 +8,7 @@
   --main-font: 'Inter', sans-serif;
   --wght-text: 400;
   --wght-title: 700;
-  --accent-font: 'PressStart2P', monospace;
+  --accent-font: 'PressStart2P', 'fantasy';
   --acccent-wght: 400;
   --background-color: #ffffff;
   --accent-color: #000000;
@@ -25,7 +25,7 @@
   --main-font: 'Inter', sans-serif;
   --wght-text: 465;
   --wght-title: 785;
-  --accent-font: 'PressStart2P', monospace;
+  --accent-font: 'PressStart2P', 'fantasy';
   --acccent-wght: 400;
   --background-color: #000000;
   --accent-color: #00cc14;
@@ -42,7 +42,7 @@
     --main-font: 'Inter', sans-serif;
     --wght-text: 465;
     --wght-title: 785;
-    --accent-font: 'PressStart2P', monospace;
+    --accent-font: 'PressStart2P', 'fantasy';
     --acccent-wght: 400;
     --background-color: #000000;
     --accent-color: #00cc14;
