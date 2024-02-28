@@ -21,6 +21,7 @@
   background-image: var(--background-image);
   background-size: cover;
   background-attachment: fixed;
+  font-variation-settings: 'wght' var(--wght-text);
   min-inline-size: 320px;
   min-block-size: 100dvb;
 }
@@ -36,6 +37,7 @@
 .header__title {
   padding-block-start: 120px;
   font-family: var(--accent-font);
+  font-weight: var(--acccent-wght);
   font-size: var(--header-title-size);
   line-height: var(--header-title-line-height);
   text-align: center;
@@ -65,14 +67,14 @@
 }
 
 .theme-menu__button {
+  position: relative;
   border: none;
+  padding: 0;
   font-family: var(--accent-font);
   font-size: 14px;
   line-height: 14px;
   text-transform: uppercase;
   background: none;
-  position: relative;
-  padding: 0;
 }
 
 .theme-menu__button:disabled {
@@ -138,9 +140,9 @@
   border-block-end: 2px solid var(--accent-color);
   padding-inline: 11px;
   padding-block: 4px;
-  font-family: var(--main-font);
   font-size: 18px;
   line-height: 22px;
+  font-variation-settings: 'wght' var(--wght-title);
 }
 
 .card__container {
@@ -150,9 +152,9 @@
 
 .card__img {
   position: relative;
+  object-fit: cover;
   inline-size: 100%;
   block-size: 371px;
-  background-size: cover;
 }
 
 .card__img-filter-brightness {
@@ -172,33 +174,42 @@
 }
 
 .card__img-filter-opacity {
-  filter: opacity(0.5);
+  filter: opacity(0.8);
 }
 
 .card__img-filter-saturate {
-  filter: saturate(200%);
+  filter: saturate(250%);
 }
 
 .card__img-filter-grayscale {
-  filter: grayscale(1);
+  filter: grayscale(0.8);
 }
 
 .card__img-multiple-filter {
-  filter: saturate(200%) contrast(120%);
+  filter: saturate(70%) contrast(40%);
 }
 
 .card__label {
   position: absolute;
   top: 23px;
   right: 12px;
-  opacity: 0.6;
+  opacity: 0.5;
   font-family: var(--accent-font);
   font-size: 14px;
   line-height: 14px;
   /* text-transform: uppercase; */
-  text-shadow: 0 0 1px var(--background-color),
-    0 0 2px var(--background-color), 0 0 3px var(--background-color);
+  text-shadow: -1px 0 var(--background-color),
+    0 1px var(--background-color), 1px 0 var(--background-color),
+    0 -1px var(--background-color);
   mix-blend-mode: hard-light;
+}
+
+@supports((text-stroke: 1px var(--background-color)) or (-webkit-text-stroke: 1px var(--background-color))) {
+  .card__label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--background-color);
+    text-stroke: 1px var(--background-color);
+  }
 }
 
 .card__text-container {
@@ -210,27 +221,26 @@
 }
 
 .card__text {
-  font-family: var(--main-font);
   font-size: 18px;
   line-height: 21px;
 }
 
 .card__buttons {
   display: flex;
-  gap: 5px;
   justify-content: end;
+  gap: 5px;
   margin-block-end: 25px;
   padding-inline-end: 25px;
   block-size: 38px;
 }
 
 .card__icon-button {
-  background: transparent;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   border: 2px solid transparent;
   padding: 0;
+  background: transparent;
   cursor: pointer;
 }
 
@@ -279,12 +289,11 @@
 
 .button__text {
   position: relative;
-  align-self: center;
-  mix-blend-mode: difference;
-  font-family: var(--accent-font);
   color: var(--button-like-color);
+  font-family: var(--accent-font);
   font-size: 14px;
   line-height: 90%;
+  mix-blend-mode: difference;
 }
 
 .save__button-container {
@@ -294,22 +303,22 @@
 }
 
 .save__button {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 8px;
+  border: 2px solid var(--accent-color);
+  background-color: var(--background-color);
+  cursor: pointer;
   inline-size: 306px;
   block-size: 80px;
-  background-color: var(--background-color);
-  position: relative;
-  border: 2px solid var(--accent-color);
-  cursor: pointer;
 }
 
 .save__button svg {
-  mix-blend-mode: difference;
   color: var(--button-like-color);
+  mix-blend-mode: difference;
   inline-size: 28px;
   block-size: 28px;
 }
@@ -341,24 +350,24 @@
 }
 
 .save__dialog {
-  inline-size: 341px;
-  block-size: 191px;
-  background-color: var(--background-color);
-  color: var(--accent-color);
-  padding: 0;
   position: fixed;
   inset: 0;
+  padding: 0;
+  color: var(--accent-color);
+  background-color: var(--background-color);
   transition: opacity 0.3s ease-in-out;
+  inline-size: 341px;
+  block-size: 191px;
 }
 
 dialog:not([open]) {
-  pointer-events: none;
   opacity: 0;
+  pointer-events: none;
 }
 
 .save__dialog::backdrop {
-  background: #000000;
   opacity: 0.75;
+  background: #000000;
 }
 
 .dialog__container {
@@ -381,18 +390,44 @@ dialog:not([open]) {
 }
 
 .dialog__close-button {
+  position: relative;
   margin-inline-start: 42px;
-  inline-size: 257px;
-  block-size: 38px;
-  background: transparent;
   border: 2px solid var(--accent-color);
   font-family: var(--accent-font);
   font-size: 14px;
   line-height: 90%;
   text-transform: uppercase;
+  background: transparent;
   cursor: pointer;
+  inline-size: 257px;
+  block-size: 38px;
 }
 
+.dialog__close-button:focus {
+  outline: none;
+}
+
+.dialog__close-button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color);
+  transition: 0.3s ease;
+}
+
+.dialog__close-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.dialog__close-button:hover::before {
+  transform: scaleX(1);
+}
 
 @media (width > 375px) {
   .header {
@@ -405,8 +440,8 @@ dialog:not([open]) {
   }
 
   .card-list {
-    max-inline-size: 696px;
     margin-block-end: 50px;
+    max-inline-size: 696px;
   }
 
   .card__container {
@@ -418,8 +453,8 @@ dialog:not([open]) {
   }
 
   .card__label {
-    right: 25px;
     top: 25px;
+    right: 25px;
   }
 
   .save__button-container {
@@ -443,12 +478,12 @@ dialog:not([open]) {
   }
 
   .dialog__container {
-    padding-inline: 30px;
     grid-template-columns: 1fr 234px;
+    padding-inline: 30px;
   }
 
   .dialog__close-button {
-    inline-size: 293px;
     margin-inline-start: 30px;
+    inline-size: 293px;
   }
 }
